@@ -1,6 +1,6 @@
 
 
-## wokflow -
+## Workflow of Data Version Control (DVC)
 <img src="others/images/simple-workflow-01@2x.png" alt="workflow" width="70%">
 
 # STEPS:
@@ -9,36 +9,46 @@
 
 ## STEP 02: intialize a git local repository and connect to remote repository
 
-* open and project folder in VS code then follow below command -
+* Open and project folder in VS code then follow below command -
 
 ```bash
 echo "# dvc_tutoral" >> README.md
+
 git init
+
 git add README.md
+
 git commit -m "first commit"
+
 git branch -M main
+
 git remote add origin https://github.com/USER_NAME/REPO_NAME.git
+
 git push -u origin main
 ```
 
 ```bash
 touch .gitignore
 ```
-content of the gitignore can be found from reference repository
+Content of the gitignore can be found from reference repository
 
 
 ## STEP 03: create and activate conda environment
 
 ```bash
 conda create -n dvc-ml python=3.9 -y
+
 conda activate dvc-ml
 ```
 ## STEP 04: create a setup file
+
+- To use src folder as package, we have to create a setup.py as below:
+
 ```bash
 touch setup.py
 ```
 
-paste the below content in the setup.py file and make the necessary changes as per your user ID-
+- Paste the below content in the setup.py file and make the necessary changes as per your user ID-
 
 ```python
 from setuptools import setup
@@ -64,11 +74,16 @@ setup(
     ]
 )
 ```
+- To verify whether src is working as package or not, run the below command and you should see the src package along with it's version in the list:
 
+```bash
+pip list
+```
 
 ## STEP 05: create requirement file and install dependencies
 ```bash
 touch requirements.txt
+
 pip install -r requirements.txt
 ```
 content of requirements.txt - Refer the reference repository

@@ -12,3 +12,14 @@ def read_yaml(path_to_yaml: str) -> dict:
         content = yaml.safe_load(yaml_file)
         
     return content
+
+
+def create_directory(dirs: list):
+    """
+    Creates directories if not exists
+    :param dirs: [list] [list of directories or folders to be created]
+    :return: None
+    """
+    for dir_path in dirs:
+        os.makedirs(dir_path, exist_ok = True)
+        print(f"directory is created at {dir_path}")
